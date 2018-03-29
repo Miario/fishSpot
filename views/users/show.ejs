@@ -1,0 +1,35 @@
+<% include ../partials/header %>
+
+<div class="row">
+    <div class="col-md-4">
+        <h1><%= user.firstName + " " + user.lastName %></h1>
+        <div class="thumbnail">
+            <img src="<%= user.avatar %>" alt="user profile image">
+            <div class="caption"><a href="mailto:<%= user.email %>"><%= user.email %></a></div>
+        </div>
+         <p>
+            Suspendisse malesuada in nisi ac laoreet.
+            Praesent pellentesque aliquam lacus, eget condimentum metus accumsan vel. 
+            Integer maximus tincidunt feugiat. Vivamus augue nunc, eleifend eget ante ut, pretium condimentum felis. 
+            Suspendisse tincidunt dignissim egestas. Integer vel ipsum eget velit maximus rutrum non eu diam.
+        </p>
+        </p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt voluptate non soluta debitis quidem est minima iure, 
+            dolorum dolores autem explicabo at laboriosam quis enim expedita consequatur quibusdam exercitationem praesentium?
+        </p>  
+    </div>
+    <div class="col-md-8">
+        <h4>FishSpots posted by <%= user.username %></h4>
+              <% if(fishspots.length < 1) { %>
+                  <h6 class="mt-4 ml-2"><em>No fishspots submitted yet...</em></h6> 
+             <% } else { %>
+                  <% fishspots.forEach( fishspot => { %>
+                       <p class="user-fishspot-list"><a href="../fishspots/<%= fishspot.id %>"><%= fishspot.name %></a></p>
+                 <% }) %>
+            <% } %>
+       </uL>
+    </div>
+</div>
+
+
+<% include ../partials/footer %>
